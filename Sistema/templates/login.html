@@ -1,8 +1,11 @@
 {% extends 'maqueta.html' %}
 {% load staticfiles %}
 
+
+
 {% block principal %}
 <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
+
 <form class="formu" method="POST">
     
     <h1>Login Usuario</h1>
@@ -13,9 +16,7 @@
     <a href="/olvido/">Quieres recuperar tu password?</a>
     <p> -- OR -- </p>
     
-    <a href="{% url 'social:begin' 'facebook' %}"> 
-        <button type="button" name="boton" class="btn btn-primary"> Facebook </button>
-    </a>
+
 
 </form>
 {% endblock %}

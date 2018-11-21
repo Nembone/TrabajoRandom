@@ -13,7 +13,7 @@ from social_django.views import auth, complete, disconnect, _do_login
 
 def index(request):
     plantilla=loader.get_template("index.html")
-    return HttpResponse(plantilla.render({'titulo':"Mis Perris"},request))
+    return HttpResponse(plantilla.render({'titulo':"Trabajo Duoc"},request))
 
 def home(request):
     return render(request, "index.html")
@@ -73,14 +73,14 @@ def ingreso(request):
         if user is not None:
             login(request,user)
             return redirect('/')
-    return render(request,'login.html',{'form':form,'titulo':'Login',})
+    return render(request,'login.html',{'form':form,'titulo':'Ingreso Usuario',})
 
 def salir(request):
     logout(request)
     return redirect('/index/')
 
 def social(request):
-    return render(request, 'fb.html')
+    return render(request, 'fb.html',{'titulo':'Inicio por FB',})
 
 def olvido(request):
     form=RecuperacionForm(request.POST or None)

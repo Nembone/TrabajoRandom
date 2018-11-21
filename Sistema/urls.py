@@ -16,8 +16,10 @@ urlpatterns=[
     url(r'^salir/$',views.salir,name="logout"),
     url(r'^Adoptar/$',views.registroPerro,name="adoptaPerro"),
     url('', include('social_django.urls', namespace='social')),
+    url(r'^fb/$',views.social,name="fb"),
+    url('accounts/', include('allauth.urls')),
 ]
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'index'

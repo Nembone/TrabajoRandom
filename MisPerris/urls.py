@@ -19,5 +19,10 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Path de Urls del Sistema
-    path('',include("Sistema.urls")),    
-]
+    path('',include("Sistema.urls")),
+    path('accounts/', include('allauth.urls')),
+    path('', include('pwa.urls')),
+    path('', include('snippets.urls')),
+    path('', include('rest_framework.urls')), #la ruta no influye, solo es de recordatorio - lo importante es el urls
+    
+] 

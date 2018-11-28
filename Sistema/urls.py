@@ -18,7 +18,7 @@ urlpatterns=[
     url('', include('social_django.urls', namespace='social')),
     url(r'^fb/$',views.social,name="fb"),
     url('accounts/', include('allauth.urls')),
-]
+    ]
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'

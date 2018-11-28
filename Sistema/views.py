@@ -80,7 +80,7 @@ def salir(request):
     return redirect('/index/')
 
 def social(request):
-    return render(request, 'fb.html',{'titulo':'Inicio por FB',})
+    return render(request, 'registro.html',{'titulo':'Inicio por FB',})
 
 def olvido(request):
     form=RecuperacionForm(request.POST or None)

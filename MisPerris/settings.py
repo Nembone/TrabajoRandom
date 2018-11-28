@@ -15,6 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'Sistema/static/js/', 'serviceworker.js')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -44,6 +46,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'pwa',
+    'rest_framework',
+    'snippets',
+
 ]
 
 LOCAL_APPS = (
@@ -71,6 +77,8 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+
 
 ROOT_URLCONF = 'MisPerris.urls'
 
@@ -157,12 +165,22 @@ EMAIL_HOST_USER='djangorecuperclave.2018@gmail.com'
 EMAIL_HOST_PASSWORD='recuperatuclaveduoc'
 EMAIL_PORT=587
 
-
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL='/'
+## Backend de Facebook - todo mediante documentacion Allauth - djangoFacebook ##
 
 SOCIAL_AUTH_FACEBOOK_KEY='384843808722039'
 SOCIAL_AUTH_FACEBOOK_SECRET='32ea8e897f5946c099c7deedc9ccbe8a'
+SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = 'nembone'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'us_US',
+  'fields': 'id, name, email, age_range'
+}
+
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL='/'
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
 SOCIALACCOUNT_PROVIDERS = {
@@ -207,3 +225,4 @@ SOCIAL_AUTH_PIPELINE = (
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_QUERY_EMAIL = True
+

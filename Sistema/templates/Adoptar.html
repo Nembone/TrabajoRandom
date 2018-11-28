@@ -1,32 +1,26 @@
-{% extends 'maqueta.html' %}
 {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Adoptar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="{% static 'css/adopta.css' %}"> 
+</head>
+<body>
 
 {% block principal %}
-<link rel="stylesheet" href="{% static 'css/formulario.css' %}">
-{% if actual.is_staff %}
-  <form  role="form"  enctype="multipart/form-data"  method="POST" class="formu">
-    <h1>Adoptar Perro</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Enviar" class="btn-enviar">
-  </form>
-{% else %}
-  <form class="formu">
-    <h1>Sin Permisos Suficientes</h1>
-  </form>
-{% endif %}
+{% for m in mascotas %}
+<img src="{{ m.imagen.url }}" alt="img">
 
-<!-- <table>
-{% if perros %}
-  <td>
-    <tr>ID Mascota | Nombre Mascota</tr>
-  </td>
-  {% for p in perros %}
-    <tr>{{ p.codigoMascota }}</tr>
-    <tr>{{ p.nombreMascota }}</tr>{{ p.imagen }}</tr>
-  {% endfor %}
-{% else %}
-  SIN perros
-{% endif %}
-</table> -->
+
+{% endfor %} 
+
 {% endblock %}
+
+    
+</body>
+</html>

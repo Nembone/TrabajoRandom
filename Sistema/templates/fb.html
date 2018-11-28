@@ -1,15 +1,13 @@
-{% extends 'maqueta.html' %}
+
 {% load socialaccount %}
 
 {% block content %}
 
-<a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">Google</a>
-<a href="{% provider_login_url "facebook" %}">Twitter</a>
-
-<a href="{% url 'social:begin' 'facebook' %}">Facebook Login</a>
-
-
 
 {% endblock %}
+
+
+
+
 
 

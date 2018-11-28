@@ -1,10 +1,13 @@
-{% load staticfiles %}
-{% load socialaccount %}
 
+{% load socialaccount %}
 <html>
+{% load pwa %}
+{% load staticfiles %}
     <head>
+        {% progressive_web_app_meta %}
         <title>{{titulo}}</title>
-        <link rel="stylesheet" href="{% static 'css/maqueta.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/maqueta.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fb.css' %}"> 
         <script src="{% static 'js/prefix.js' %}" type="test/javascript"></script>
         <script src="{% static "js/jquery-3.3.1.js" %}"></script>
         <script src="{% static "js/popper.js" %}"></script>
@@ -45,7 +48,6 @@
                     <a href="/index/#info">Quienes Somos</a>
                     <a href="/registro/">Registrarse</a>
                     <a href="/login/">Ingresar</a>
-                    <a href="/fb/">Facebook</a>
                 </nav>
             {% endif %}
 
